@@ -1,0 +1,65 @@
+.planes{
+    
+    align-items: center; 
+    background: white;
+    padding: 10px 0;
+    margin: 10px 0;
+    width: auto;
+ }
+
+.plan{
+    position: relative;
+    display: flex;
+}
+
+.section{
+    position:relative ;
+    display: flex;
+    padding: 20px;
+    margin: 10px;
+}
+
+
+
+#recuadro1{
+    border: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 64px;
+    box-shadow: 10px 10px 10px 10px  #aaa;
+    border-radius: 7px;
+    background-color:#fbf8f8;
+    width:300px;
+    padding:10px;
+    margin:10px 30px;
+    
+   }
+
+h3{
+    width:auto;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+}
+.box{
+    position: absolute;
+    width: 540px;
+    height: 540px;
+    left: 880px;
+    bottom: 40px;
+    border-radius: 300px;
+background: #F1E4FF;
+
+}
+/*
+isplay: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 64px;
+
+position: absolute;
+width: 1110px;
+height: 464px;
+left: 165px;
+top: 192px;

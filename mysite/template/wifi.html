@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+configWifi
+
+{% endblock %}
+
+
+
+{% block content %}
+{% load static %}
+
+
+<div id="back">
+    <br><br>
+        <h1 class="red">Comfiguracion de WIFI</h1>
+        <p>podras coambiar el nombre de la red y contraseña wifi</p>
+            <br>
+        <p>Ingresa el nuevo nombre de tu red WiFi y/o contraseña y da clic en Cambiar.</p>
+
+    <div class="form2">
+        <h2>Informacion de Red</h2>
+            <div class="input">
+                <form action="" method="post">
+
+                    <input type="text" class="form-control form-control-sm" id="colFormLabel" placeholder=" Nuevo Nombre ">
+                    <input type="name" class="form-control form-control-sm" id="colFormLabel" placeholder=" Nueva Contraseña ">
+
+                </form>
+            </div>
+            <div class="bntFOr">
+                <button class="cancelar">Cancelar</button>
+                <button class="cambiar">Cambiar</button>
+            </div>
+    </div>
+    <p class="p">¡Listo! Una vez realices los cambios, recuerda buscar la nueva red en tus dispositivos e ingresar la nueva
+        contraseña en tus dispositivos.</p>    
+        <br><br>
+</div>
+
+
+    
+{% endblock %}
+
+ 
+        
+      
+  

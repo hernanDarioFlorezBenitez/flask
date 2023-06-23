@@ -1,0 +1,78 @@
+.impo{
+    background: #D5FAFC;
+    width:1400px;
+}
+
+.titulo{
+    text-align:center;
+    padding:21px;
+    margin:0px;
+    
+    }
+    
+.titulo p {
+        width:700px;
+        padding-left:20%;
+    }
+    
+h1{
+        padding:5px;
+        margin:5px;
+    }
+    
+.enlaces{
+        display:block;
+        margin:10px;
+        padding-left:12%;
+    
+    }
+    
+.h44{
+        color:#F7740C;
+        padding:20px 0px;
+    }
+    
+.enlaces a{
+        color:#F7740C;
+    }  
+    
+.container{
+        display:flex;
+        
+    }
+    
+form input{
+        display:block;
+        padding:10px;
+        margin:5px;
+        margin-bottom:15px;
+        width:300px;
+        background:white;
+        border-radius:6px;
+        border:none;
+    
+    }
+    
+.formularioTra{
+        margin:20px;
+        margin-left:80px;
+    }
+    
+.btnTrabajo{
+        width:110px;
+        padding:5px;
+        margin:5px;
+        background:#003EAD;
+        color:white;
+        border-radius:40px;
+        border:none;
+        margin-left:210px;
+        cursor: pointer;
+        transition: all 0.3s;
+    } 
+.btnTrabajo button:hover{
+        background: rgba(1, 50, 143, 1);
+        transform: scale(1.1);
+        
+    }
+    

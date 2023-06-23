@@ -1,0 +1,73 @@
+
+
+#form1{
+    width:1000px;
+    margin:20px 140px;
+    padding: 20px;
+    align-items: center;
+    display: flex;
+    background: #D9D9D9;
+    border: none;
+    border-radius: 40px;
+}
+
+.form-for1{
+    display: block;
+    padding: 0px 10%;
+
+}
+
+.form-for1 h2{
+    margin: 20px;
+    text-align: center;
+}
+.form-for1 p{
+    color: #003EAD;
+    text-align: center;
+}
+
+.form-input{
+    
+    display: block;
+    border-radius: 50px;
+    margin: 10px;
+    align-items: flex-end;
+}
+
+#colFormLabel{
+    margin: 10px;
+    border: none;
+    border-radius: 50px;
+    display: block;
+    width: 350px;
+    height: 30px;
+}
+#checkbox{
+    margin: 2px;
+}
+
+.enviar{
+    display: flex;
+    margin: 5px;
+}
+
+.enviar button{
+   
+    
+        font-weight: 700;
+        color: white;
+        background:#003EAD;
+        padding: 9px 20px;
+        border: none;
+        border-radius:6px ;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin: 7px;
+    
+}
+
+.enviar button:hover{
+    background: rgba(1, 50, 143, 1);
+    transform: scale(1.1);
+    
+}

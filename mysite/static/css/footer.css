@@ -1,0 +1,66 @@
+.footer{
+    background: #0B0D17;
+    position: absolute;
+    width: 1400px;
+    height: 256px;
+    border-top: white;
+}
+
+#h4{
+    padding: 10px;
+    
+    text-align: center;
+    color: rgb(254, 254, 255);
+    font-size: 2em;
+}
+#h5{
+    padding: 10px;
+    
+    text-align: center;
+    color: rgb(241, 241, 243);
+    font-size: 1.5em;
+}
+
+.ploiticas{
+    text-align: center;
+}
+.ploiticas a{
+    margin: 5px;
+    color: white;
+
+}
+.copi{
+    width: 1200px;
+    border-bottom: white;
+    color: white;
+    display: flex;
+}
+.copi i{
+    left:50px ;
+    color: white;
+    float: left;
+    margin: 5px;
+    transition: all 0.3s;
+    font-size: 2rem;
+    margin: 5px;
+}
+.copi i:hover{
+    transform: scale(1.1);
+    color: rgba(108, 131, 250, 1);
+    transition: all 0.3s;
+}
+
+.ring{
+    margin:40px;
+    width: 50%;
+}
+
+.i{ 
+    width: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    right: 165px;
+    margin:20px 0%
+}

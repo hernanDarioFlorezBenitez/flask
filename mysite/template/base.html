@@ -1,0 +1,128 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href='{% static "css/RYR.CSS" %}'><!--estilos del header-->
+    <link type="text/css" rel="stylesheet" href='{% static "css/carrucel.css" %}'><!--estilos del banner o carrucel-->
+    <link type="text/css" rel="stylesheet" href='{% static "css/form.css" %}'> <!--estilos del formulario de solicitud de servicio-->
+    <link type="text/css" rel="stylesheet" href='{% static "css/planes.css" %}'><!--estilos del pantalla de planes-->
+    <link type="text/css" rel="stylesheet" href='{% static "css/footer.css" %}'><!--estilos del footer-->
+    <link type="text/css" rel="stylesheet" href='{% static "css/singup.css" %}'>
+    <link type="text/css" rel="stylesheet" href='{% static "css/login.css" %}'> 
+   
+    <link type="text/css" rel="stylesheet" href='{% static "ccs/acercaDe.css" %}'>
+    <link type="text/css" rel="stylesheet" href='{% static "css/Trabaja.css" %}'>
+    <link type="text/css" rel="stylesheet" href='{% static "css/configWifi.css" %}'>
+
+    <script src="https://kit.fontawesome.com/f18c17b516.js" crossorigin="anonymous"></script>
+    
+    <script type="text/javaScript" src="https://kit.fontawesome.com/f18c17b516.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+
+     <!--bleque titulo es para cambiar los titulos de las pesaña del navegador-->
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+
+    </head>
+
+    <body>
+        
+        <header class="header">
+            <div class="logo">
+               <a href="{% url 'index' %}"><img src='{% static "img/menulogo.jpg" %}' alt="logo de RYR"></a> 
+            </div>
+            <nav >
+                <ul class="navLef">
+                   <li><a href="{% url 'acercaDe' %}">ACERCA DE</a></li>
+                   <li><a href="{% url 'pago' %}">PAGOS</a></li>             
+                   <li><a href="{% url 'trabajo' %}">TRABAJA CON NOSOTROS</a></li>
+                   <li><a href="">SERVICIOS</a>
+                        <ul class="navLe">
+                            <li><a href="{% url 'instalacion' %}">Solicitar Instalacion</a></li>
+                            <li><a href="{% url 'reparaciones' %}">Solicitar Reparacion</a></li>
+                            <li><a href="{% url 'wifi' %}">Configuracion Wifi</a></li>
+                            <li><a href="{% url 'pqr' %}">Instaurar PQR</a></li>
+                            <li><a href="{% url 'cobertura' %}">Cobertura</a></li> 
+                        </ul>                   
+                   </li>
+                </ul>
+            </nav>
+            <nav class="btn">
+              <a href="{% url 'singup' %}"> <button >Login</button></a> 
+               <a href="{% url 'login' %}"><button>Sign Up</button></a> 
+            </nav>
+        </header>
+
+
+     <!--  <header class="header">
+            <div class="logo">
+                <img src='{% static "img/menulogo.jpg" %}' alt="logo de RYR">
+            </div>
+            <nav >
+                <ul class="navLef">
+                  <li><a class="nav-link" href="acercaDe.html">ACERCA DE</a></li>
+                   <li><a class="nav-link" href="pago.html">PAGOS</a></li>             
+                   <li><a class="nav-link" href="trabajo.html">TRABAJA CON NOSOTROS</a></li>
+                   <li><a class="nav-link" href="">SERVICIOS</a>
+                        <ul class="navLe">
+                            <li><a class="nav-link" href="instalacion.html">Solicitar Instalacion</a></li>
+                            <li><a class="nav-link" href="reparaciones.html">Solicitar Reparacion</a></li>
+                            <li><a class="nav-link" href="wifi.html">Configuracion Wifi</a></li>
+                            <li><a class="nav-link" href="pqr.html">Instaurar PQR</a></li>
+                            <li><a class="nav-link" href="cobertura.html">Cobertura</a></li> 
+                        </ul>                   
+                   </li>
+                </ul>
+            </nav>
+            <nav class="btn">
+              <a href="login.html"> <button >Login</button></a> 
+               <a href="singup.html"><button>Sign Up</button></a> 
+            </nav>
+        </header> --> 
+        <br>
+        
+        <!--bloque de contenido que cambia en la pagina-->
+        <div class="content">
+            {% block content %} {% endblock %}
+        </div>
+        
+        <footer class="footer">
+            <h4 id="h4">RYR</h4>
+            <h5 id="h5">telecomunicasiones</h5>
+            <div class="ploiticas">
+                <a href="">Quejas y Reclamos</a>
+                <a href="">contactanos</a>
+                <a href="">Politicas de privacidad</a>
+            </div>
+            <div class="copi">
+                <div class="ring">
+                    <i class="fa fa-copyright" aria-hidden="true"></i>
+                    2022 HDFsofware. All rights reserved
+                </div>
+        
+                <div class="i">
+                    <a href="https:www.facebook.com/RYRtelecomunicacioness" target="_blank">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/ryrtelecomunicaciones/" target="_blank">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://wa.me/573022811186" target="_blank">
+                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                </div>
+        
+            </div>
+        
+        </footer>
+
+        <script type="text/javaScript" src='{% static "javaScript/main.js" %}'></script>
+    </body>
+</html>

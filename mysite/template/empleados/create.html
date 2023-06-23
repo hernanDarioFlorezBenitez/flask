@@ -1,0 +1,59 @@
+{% extends "empleados/plantilla.html" %}
+{% load static %}
+
+{% block title %} registro de nuevos empleados  {% endblock %}
+
+        
+
+{% block content %}  
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title">Registro de nuevos empleados</h1>
+    </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos Empleados</h5>
+            
+            {% include 'empleados/form.html' %}
+
+        </div>
+    </div>
+       
+
+
+<form method="post" action="/store" enctype="multipart/form-data">
+    
+    Cedula:
+    <input type="int" name="txtCedula" id="txtCedula">
+    <br>
+    Nombres:
+    <input type="text" name="txtNombre" id="txtNombre">
+    <br>
+    Apellidos:
+    <input type="text" name="txtApellido" id="txtApellido">
+    <br>
+    Celular 1:
+    <input type="int" name="txtCelular1" id="txtCelular1">
+    <br>
+    Celular 2:
+    <input type="int" name="txtCelular2" id="txtCelular2">
+    <br>
+    Direccion:
+    <input type="text" name="txtDireccion" id="txtDireccion">
+    <br>
+    Correo:
+    <input type="text" name="txtCorreo" id="txtCorreo">
+    <br>
+    Fecha ingreso:
+    <input type="datetime" name="txtFechaIngre" id="txtFechaIngre">
+    <br>
+
+    Foto:
+    <input type="file" name="txtFoto" id="txtFoto">
+    <br>
+    <br>
+    <input type="submit" value="agregar">
+
+</form>
+
+{% endblock %}

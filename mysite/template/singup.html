@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+singUp
+
+{% endblock %}
+
+
+
+{% block content %}
+{% load static %}
+
+
+    <main>
+        <section class="singup">
+            <div class="img">
+                <img src='{% static "carrucel/002.jpg" %}' alt="">
+            </div>
+           <div class="todo">
+            <div class="cuenta">
+                <h1>Ingresa a tu cuenta</h1><br><img src='{% static "img/logo_pantalla1.jpg" %}' width="50" height="50" alt="envio">
+            </div>
+            <div class="formulario">
+                <form action="" method="get">
+                    <input type="texto" name="" id="" placeholder="Cédula">
+                    <input type="texto" name="" id="" placeholder="contraseña">
+                </form>  
+            </div>
+            <div>
+                <button class="btnEnviar"> Enviar </button>
+            </div>
+           </div>  
+        </section>
+    </main>
+
+{% endblock %}

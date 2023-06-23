@@ -1,0 +1,74 @@
+{% extends "empleados/plantilla.html" %}
+{% load static %}
+
+{% block title %} Empleados  {% endblock %}
+
+        
+
+{% block content %}  
+
+<div class="card">
+    <div class="card-header">
+        <a class="btn btn-primary" href="{% url 'create' %}" role="button">Agregar Nuevo Empledao</a>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Empleados</h5>
+      <table class="table table-dark">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Cedula</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Celular 1</th>
+                <th>Celular 2</th>
+                <th>Diureccion</th>
+                <th>Correo</th>
+                <th>Foto</th>
+                <th>Fecha ingreso</th>
+            <!--<th>Fecha retiro</th>
+                <th>Cargo</th>
+                <th>Horario</th>
+                <th>Zona</th>-->
+
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for empleado  in empleados %}
+            <tr>
+                <td>{{empleado.id_empleado}}</td>
+                <td>{{empleado.cedula}}</td>
+                <td>{{empleado.nombres}</td>
+                <td>{{empleado.apellidos}}</td>
+                <td>{{empleado.celular1}}</td>
+                <td>{{empleado.celular2}}</td>
+                <td>{{empleado.direccion}}</td>
+                <td>{{empleado.correo}}</td>
+                <td>{{empleado.foto}}</td>
+                <td>{{empleado.fecha_ingreso}}</td>
+           
+                
+                <td>
+                    <a class="btn btn-primary" href="{% url 'edit' %}" role="button">Editar</a>
+                    |
+                    <a class="btn btn-danger" href="#" role="button">Borrar</a>
+                </td>
+            </tr>  
+          
+            {% endfor %}
+        </tbody>
+    </table>
+     
+    </div>
+</div> 
+  
+  {% endblock %}
+
+
+
+
+
+   
+   

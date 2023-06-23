@@ -1,0 +1,70 @@
+
+#back{
+    width:1400px;
+    left: 10%;
+    background: #D5FAFC;
+    text-align: center;
+    align-items: center;
+}
+.red{
+    margin: 3%;
+}
+h2{
+    margin: 1%;
+    padding: 3%;
+}
+p{
+    margin: 20px;
+    
+}
+
+.formu2{
+    
+    left: 30%;
+    background: rgb(250, 246, 246);
+    width: 300px;
+    height: 300px;
+    padding: 5%;
+    display: block;
+    border-radius: 1px;
+    border:solid;
+}
+
+.input input{
+    font-size: 25px;
+    display: block;
+    border-radius: 50px;
+    margin: 20px;
+    align-items: center;
+}
+
+.cancelar{
+    
+    font-weight: 700;
+    color: white;
+    background:#003EAD;
+    padding: 9px 20px;
+    border: none;
+    border-radius:6px ;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 50px 5px;
+}
+.cambiar{
+    
+    font-weight: 700;
+    color: white;
+    background:#003EAD;
+    padding: 9px 20px;
+    border: none;
+    border-radius:6px ;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 50px 5px;
+}
+
+button:hover{
+    background: rgba(1, 50, 143, 1);
+    transform: scale(1.1);
+    
+}
