@@ -8,13 +8,12 @@
     
 }
 body{
-    background-color:rgba(250, 246, 246, 1);
-    width:1400px;
+    background-color:rgb(88, 88, 89);
+    
 }
 
 .header{
-    width:1400px;
-    position: fixed;
+    width:100%;
     background: rgb(253, 252, 252);
     display: flex;
     justify-content: space-between;
@@ -52,7 +51,6 @@ body{
 
 .header .navLef a{
     font-size: 800;
-    text-decoration: none;
     color: black;
     background: white;
 }
@@ -78,20 +76,96 @@ body{
     padding:5px;
 }
 /*css botones login y sing up*/
+.menu{
+    display: none;
+}
 
-.header .btn button{
+.header .btn button,
+.header .menu button{
     font-weight: 700;
     color: white;
     background:#003EAD;
-    padding: 9px 20px;
+    padding: 9px 10px;
     border: none;
     border-radius:6px ;
     cursor: pointer;
     transition: all 0.3s;
     margin: 3px;
 }
-.header .btn button:hover{
+.header .btn button:hover,
+.header .menu button:hover{
     background: rgba(1, 50, 143, 1);
     transform: scale(1.1);
     
+}
+
+
+/*estilo mediaquery para volver responsive la barra de navegacion*/
+@media only screen and (max-width:800px) {
+    .navLef,.header .btn{
+        display: none;
+    }
+    
+    .menu{
+        display: inherit;
+    }
+    
+}
+
+.header a{
+    text-decoration: none;
+}
+
+.header .overlay{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: #003EAD;
+    overflow: hidden;
+    transition: all 1s ease 0s;
+}
+
+.header .overlay .overlay-content{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .overlay a{
+    padding: 15px;
+    font-size: 20px;
+    display: block;
+    transition: all 0.3s ease 0s;
+    font-weight: 700;
+    color: aliceblue;
+}
+
+.header .overlay a:hover,
+.header .overlay a:focus{
+    color: aqua;
+}
+
+.header .overlay .close{
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 65px;
+}
+
+@media only screen and (max-height:450px){
+    .header .overlay a{
+        font-size: 20px;
+    
+    }
+
+    .header .overlay .close{
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
 }

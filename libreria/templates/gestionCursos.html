@@ -1,0 +1,79 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block title %} GestionCursos  {% endblock %}
+
+        
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong class="text-dark">{{message}}</strong>
+          </div>
+        {% endfor %}
+      {% endif %}
+    <h2>Gestion de Horarios</h2>
+    <div class="card">
+      <div class="card-body">
+        <form action="/registrarCurso/" method="POST">{% csrf_token %}
+          <div class="form-group">
+            <input id="txthorario_am" class="form-control" type="text" name="txthorario_am" 
+            placeholder="horario am" minlength="" maxlength="20" required>
+          </div>
+          <br>
+          <div class="form-group">  
+            <input id="txthorario_pm" class="form-control" type="text" name="txthorario_pm" 
+            placeholder="horario pm" minlength="" maxlength="20" required>
+          </div>
+          <br>
+          <div class="form-group">  
+            <input id="txthorario_descanso" class="form-control" type="text" name="txthorario_descanso" 
+            placeholder="horario descanso" minlength="1" maxlength="50" required>
+          </div>
+          <br>
+          <div  class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Agregar Nuevo Horario</button>
+          </div>
+        </form>
+      </div>
+    </div>    
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+      <div class="table-responsive">
+        <h1>Lista de Horarios</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>horario am</th>
+                <th>horario pm</th>
+                <th>horario descanso</th>
+                <th colspan="2">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>  
+            {% for c  in cursos %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{c.ID_hotario}}</td>
+                <td>{{c.horario_am}}</td>
+                <td>{{c.horario_pm}}</td>
+                <td>{{c.horario_descanso}}</td>
+                <td>
+                    <a class="btn btn-primary" href="editCurso/{{c.ID_hotario}}" role="button">Editar</a>
+                    
+                    <a class="btn btn-danger btnEliminacion" href="eliminarCurso/{{c.ID_hotario}}" role="button">Borrar</a>
+                </td>
+            </tr>  
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>    
+  </div>
+</div>
+{% endblock %} 

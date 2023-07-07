@@ -1,0 +1,116 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block title %} Hojas de vida {% endblock %}
+
+
+
+{% block content %}
+
+<div class="row">
+  <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <strong class="text-dark">{{message}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <h2>Agregar hoja de Vida</h2>
+    <div class="card">
+      <div class="card-body">
+        
+        <form action="/registrarHv/" method="POST" class="row g-3">{% csrf_token %}
+         
+          <div class="form-group col-md-6 "> 
+            <input id="txtcedula" type="text" name="txtcedula" placeholder="cedula" 
+            class="form-control" required> 
+          </div>
+         
+          <br>
+          <div class="form-group col-md-6">
+            <input id="txtnombres" type="text" name="txtnombres" placeholder="Escribe tu nombres" 
+            class="form-control" required>  
+          </div>
+       
+          <br>
+          <div class="form-group col-md-6">
+            <input id="txtapellidos" type="text" name="txtapellidos" placeholder="Escribe tu apellidos"
+             class="form-control" required>
+          </div>
+          <br>
+
+          <div class="form-group col-md-6">
+            <input id="txtcorreo" type="email" name="txtcorreo" placeholder="Escribe tu correo" 
+            class="form-control" required>  
+          </div>
+          <br>
+
+          <div class="form-group col-md-6">
+            <input id="txtcelular" type="tel" name="txtcelular" placeholder="Escribe tu telefono" 
+            class="form-control" required>  
+          </div>
+          <br>
+
+          <div class="form-group col-md-6">
+            <textarea id="txtmensaje" class="form-control" maxlength="1000" 
+            name="txtmensaje" rows="3" placeholder="Escribe tu mensaje" required></textarea>  
+          </div>
+          <br>
+        
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Agregar Nuevo Solicitud</button>
+          </div>
+        </form>
+      
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-12 col-md-6 col-lg-12 col-xl-12">
+  <div class="table-responsive">
+    <div class="card-body">
+      <h5 class="card-title">hojas de vida</h5>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Cedula</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Correo</th>
+            <th>Celular </th>
+            <th>mensaje</th>
+            <th colspan="2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for h in hojaVida %}
+          <tr>
+            <td>{{h.ID}}</td>
+            <td>{{h.cedula}}</td>
+            <td>{{h.nombres}}</td>
+            <td>{{h.apellidos}}</td>
+            <td>{{h.correo}}</td>
+            <td>{{h.celular}}</td>
+            <td>{{h.mensage}}</td>
+            <td>
+              <a class="btn btn-primary" href="editHv/{{h.ID}}" role="button">Editar</a>
+              
+              <a class="btn btn-danger" href="eliminarHv/{{h.ID}}" role="button">Borrar</a>
+            </td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

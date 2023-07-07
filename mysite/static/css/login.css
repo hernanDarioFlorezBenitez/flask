@@ -9,6 +9,7 @@
     display: block;
 }
 .all{
+    display: block;
     background: orange;
     width: 470px;
     height: 590px;

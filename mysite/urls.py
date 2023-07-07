@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django import views
 from django.contrib import admin
-from django.urls import path
+from django.urls import path , include, re_path
 from mysite import views
 from django.urls import include
+from django.conf import settings
+from django.views.static import serve
 #from mysite.views import  index, singup, acercaDe, cobertura, trabajo, wifi
 
 
@@ -26,14 +28,6 @@ from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', index),
-    #path('singup/', singup),
-    #path('login/', login),
-    #path('acercaDe/', acercaDe),
-    #path('cobertura/', cobertura),
-    #path('trabajo/', trabajo),
-    #path('wifi/', wifi),
-
     path('',views.index, name="index"),
     path('singup', views.singup, name="singup"),
     path('acercaDe',views.acercaDe, name="acercaDe"),
@@ -47,9 +41,16 @@ urlpatterns = [
     path('pqr', views.pqr, name="pqr"),
     path('cobertura', views.cobertura, name="cobertura"),
 
-    path('inicio', views.inicio, name="inicio"),
-    path('create', views.create, name="create"),
-    path('edit', views.edit, name="edit"),
+    #vistas de ejemplo libreria
+
+    path('', include('libreria.urls')),
+    path('', include('hojaDeVida.urls')),
 ]
 
 
+urlpatterns +=[
+    re_path(r'^media/(?P<path>,*)$',serve,{
+        'document_root':settings.MEDIA_ROOT,
+    })
+
+]

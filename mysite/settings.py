@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-h0vr$bj+h+kuiihz@s(lg%ihma#@1-jd1z3an$4ahytg@u8of)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.100.38']
 
 
 # Application definition
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     
+    'libreria',
+    'hojaDeVida',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/HERNAN/Desktop/flask/mysite/template'],
+        'DIRS': ['C:/Users/HERNAN/Desktop/flask/mysite/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,10 +85,7 @@ DATABASES = {
         'USER':'root',
         'PASSWORD':'',
         'HOST':'localhost',
-        'PORT':'' ,
-        'OPTIONS': {
-            "init_command": "SET default_storage_engine=INNODB",
-        }  
+        'PORT':'' ,  
     }
 }
 
@@ -127,8 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'mysite/static'),)
+
+MEDIA_URL=  'media/'
+MEDIA_ROOT= (os.path.join(BASE_DIR,'mysite/media'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

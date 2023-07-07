@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Trabajo
+
+{% endblock %}
+
+
+
+{% block content %}
+{% load static %}
+
+<div class="impo">
+    <br><br>
+    <main class="trabajo">
+        <div class="titulo">
+            <h1>Trabaja con nosotros</h1>
+            <p>Sabemos que cuentas con increíbles capacidades que ofrecer, por esto te dejamos nuestros formulario para
+                que te registres y nos cuentes sobre tus habilidades, también puedes estar pendiente de nuestras
+                convocatorias y presentarte.
+                Si se encuentra en Medellin, puede acercarse a nuestras oficinas..</p>
+        </div>
+        <div class="container">
+            <div class="enlaces">
+                <h4 class="h44">Utiliza las siguientes vias de contacto, o rellana el
+                    formulario.</h4>
+    
+                <p>Via E-mail</p>
+                <a href="#">info@ryrtelecomunicaciones.com</a>
+    
+                <p>En nuestras redes sociales</p>
+                <a href="https:www.facebook.com/RYRtelecomunicacioness" target="_blank">
+                <i class="fa fa-facebook-official" aria-hidden="true">FACEBOOK</i>
+                </a>
+                <a href="https://www.instagram.com/ryrtelecomunicaciones/" target="_blank">
+                    <i class="fa fa-instagram" aria-hidden="true">INSTAGRAM</i>
+                </a>
+                <br>
+                <p>WhatsApp</p>
+                <a href="https://wa.me/57" target="_blank">
+                    <i class="fa fa-whatsapp" aria-hidden="true">3022811186</i>
+                </a>
+                <br>
+                <p>Direccion</p>
+                <a target="_blank" href="https://www.google.com/maps/place/Cl.+136+Sur+%2350a-11,+Caldas,+Antioquia/@6.0860589,-75.6363369,17z/data=!3m1!4b1!4m5!3m4!1s0x8e468689c4463f29:0xc14758578778a07c!8m2!3d6.0860589!4d-75.6363369?entry=ttu" >
+                    Calle 136 sur #50ª-11, Caldas, Antioquia
+                </a>
+            </div>
+           
+            <div class="formularioTra">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong class="text-dark">{{message}}</strong>
+                    </div>
+                {% endfor %}
+                {% endif %}
+            <form action="/registrarH/" method="POST">{% csrf_token %}
+         
+                <div class="form-group  "> 
+                  <input id="txtcedula" type="text" name="txtcedula" placeholder="cedula" 
+                  class="form-control" required> 
+                </div>
+               
+                <div class="form-group">
+                  <input id="txtnombres" type="text" name="txtnombres" placeholder="Escribe tu nombres" 
+                  class="form-control" required>  
+                </div>
+             
+                <div class="form-group">
+                  <input id="txtapellidos" type="text" name="txtapellidos" placeholder="Escribe tu apellidos"
+                   class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                  <input id="txtcorreo" type="email" name="txtcorreo" placeholder="Escribe tu correo" 
+                  class="form-control" required>  
+                </div>
+      
+                <div class="form-group">
+                  <input id="txtcelular" type="tel" name="txtcelular" placeholder="Escribe tu telefono" 
+                  class="form-control" required>  
+                </div>
+
+                <div class="form-group">
+                  <textarea id="txtmensaje" class="form-control" maxlength="1000" 
+                  name="txtmensaje" rows="3" 
+                  placeholder="Mensione el puesto para el cual se desea postular" required></textarea>  
+                </div>
+               
+                <div class="form-group">
+                    <button type="submit" class="btnTrabajo ">ENVIAR</button>
+                </div>
+              </form>
+            </div>  
+        </div>   
+    </main>
+
+</div>
+
+
+{% endblock %}
+
+
+   
+   

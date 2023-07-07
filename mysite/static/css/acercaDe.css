@@ -2,28 +2,19 @@
 
 
 #histo{
-    background:  #D5FAFC;
-    height: 800px;
+    background: #D5FAFC;
 }
-
-.sectionAcer{
-    display: flex;
-    align-content: flex-end;
-}
-
+    
 
 .wifi i{
-    position: absolute;
+    margin-top: 20px;
+    margin: 15px;
     font-size: 48px;
     left: 30%;
     right: 0.44%;
     top: 8%;
     bottom: 5%;
-    width: 142px;
-    height: 120px;
-    position: absolute;
-    width: 143px;
-    height: 120px;
+    
     left: 165px;
     top: 64px;
     color:  #2EC5CE;
@@ -31,8 +22,7 @@
 }
 
 .ryr{
-    position: absolute;
-    width: 445px;
+    
     height: 64px;
     left: 160px;
     top: 96px;
@@ -48,6 +38,21 @@
     color: #18191F;
 }
 
+#titulo2{
+    
+    margin: 10px;
+    height: 32px;
+    left: calc(50% - 118px/2 - 206px);
+    top: calc(50% - 32px/2 - 158.5px);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 32px;
+    /* identical to box height, or 89% */
+    font-feature-settings: 'salt' on, 'liga' off;
+    color: #000000;
+}
 #recuadro2{
     border: none;
     flex-direction: column;
@@ -56,27 +61,29 @@
     box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
     border-radius: 8px;
     background-color:#fbf8f8;
-    width:250px;
-    height: 400px;
+    width:300px;
+    height: 490px;
     margin:10px 30px;
     display: flex;
     flex-direction: column;
     padding: 32px;
     gap: 32px;
-    position: absolute;
+    
     left: 360px;
-    top: 303px;
+    top: 153px;
     /* Default / White */
     background: #FFFFFF;
     /* Dark Shadow */
 }
 
-#titulo2{
-    position: absolute;
-    width: 118px;
+
+#titulo3{
+    margin: 15px;
+    width: 106px;
     height: 32px;
-    left: calc(50% - 118px/2 - 206px);
-    top: calc(50% - 32px/2 - 158.5px);
+    left: calc(40% - 106px/2 + 243px);
+    top: calc(50% - 32px/2 - 300.5px);
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -97,12 +104,12 @@
     border-radius: 7px;
     background-color:#fbf8f8;
     width:300px;
-    height: 500px;
+    height: 450px;
     margin:10px 30px;
     flex-direction: column;
     padding: 32px;
     gap: 32px;
-    position: absolute;
+    
     left: 735px;
     top: 168px;
     /* Default / White */
@@ -111,22 +118,6 @@
     border-radius: 8px;
 }
 
-#titulo3{
-    position: absolute;
-    width: 106px;
-    height: 32px;
-    left: calc(50% - 106px/2 + 243px);
-    top: calc(50% - 32px/2 - 300.5px);
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 32px;
-    /* identical to box height, or 89% */
-    font-feature-settings: 'salt' on, 'liga' off;
-    color: #000000;
-}
 
 #recuadro2 i{
     color:  #2EC5CE;
@@ -137,3 +128,19 @@
     color:  #2EC5CE;
     opacity: 0.3;
 }
+
+@media screen and (max-width:800px) {
+    .ryr{
+        text-align: center;
+    }
+
+    .wifi i{
+        padding:0 30%;
+    }
+    #titulo3,
+    #titulo2{
+        font-size: 20px;
+        left: 0px;
+        top: 0px;
+    }
+}|

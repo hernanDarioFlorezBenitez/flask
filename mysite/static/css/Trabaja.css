@@ -13,6 +13,7 @@
 .titulo p {
         width:700px;
         padding-left:20%;
+        text-align: center;
     }
     
 h1{
@@ -44,12 +45,13 @@ h1{
 form input{
         display:block;
         padding:10px;
-        margin:5px;
-        margin-bottom:15px;
+        margin:2px;
+        margin-bottom:8px;
         width:300px;
         background:white;
         border-radius:6px;
         border:none;
+        
     
     }
     
@@ -75,4 +77,8 @@ form input{
         transform: scale(1.1);
         
     }
+
+#txtmensaje{
+    resize:none;
+}
     

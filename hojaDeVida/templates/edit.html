@@ -1,0 +1,68 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block title %} Formulario para editar  {% endblock %}
+
+        
+
+{% block content %}   
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edicion de Hojas de vida</h2>
+        <div class="card">
+          <div class="card-body">
+            
+
+            <form action="/editarHv/" method="POST">{% csrf_token %}
+                
+                <div class="form-group">
+                    <input id="txtID" class="form-control" type="text" name="txtID" 
+                     minlength="" maxlength="20" value="{{h.ID}}" readonly>
+                </div>
+                <br>
+                <div class="form-group  "> 
+                  <input id="txtcedula" type="text" name="txtcedula" placeholder="cedula" 
+                  class="form-control" value="{{h.cedula}}" > 
+                </div>
+               
+                <br>
+                <div class="form-group ">
+                  <input id="txtnombres" type="text" name="txtnombres" placeholder="Escribe tu nombres" 
+                  class="form-control" value="{{h.nombres}}">  
+                </div>
+             
+                <br>
+                <div class="form-group ">
+                  <input id="txtapellidos" type="text" name="txtapellidos" placeholder="Escribe tu apellidos"
+                   class="form-control" value="{{h.apellidos}}">
+                </div>
+                <br>
+      
+                <div class="form-group ">
+                  <input id="txtcorreo" type="email" name="txtcorreo" placeholder="Escribe tu correo" 
+                  class="form-control" value="{{h.correo}}" >  
+                </div>
+                <br>
+      
+                <div class="form-group ">
+                  <input id="txtcelular" type="tel" name="txtcelular" placeholder="Escribe tu telefono" 
+                  class="form-control" value="{{h.celular}}" >  
+                </div>
+                <br>
+      
+                <div class="form-group ">
+                  <input id="txtmensaje" value="{{h.mensage}}" class="form-control" maxlength="1000" 
+                  name="txtmensaje" rows="3" placeholder="Escribe tu mensaje"></input>  
+                </div>
+                <br>
+              
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+                </div>
+              </form>
+          </div>
+        </div>    
+    </div>
+</div>
+{% endblock %}

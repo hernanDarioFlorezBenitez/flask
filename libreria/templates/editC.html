@@ -1,0 +1,48 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block title %} Formulario para editar  {% endblock %}
+
+        
+
+{% block content %}   
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edicion de Horarios</h2>
+        <div class="card">
+          <div class="card-body">
+            <form action="/editarCurso/" method="POST">{% csrf_token %}
+                <div class="form-group">
+                    <input id="txtID_hotario" class="form-control" type="text" name="txtID_hotario" 
+                    placeholder="ID" minlength="" maxlength="20" required
+                    value="{{Curso.ID_hotario}}" readonly>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input id="txthorario_am" class="form-control" type="text" name="txthorario_am" 
+                    placeholder="horario am" minlength="" maxlength="20" required
+                    value="{{Curso.horario_am}}">
+                </div>
+                <br>
+                <div class="form-group">  
+                    <input id="txthorario_pm" class="form-control" type="text" name="txthorario_pm" 
+                    placeholder="horario pm" minlength="" maxlength="20" required
+                    value="{{Curso.horario_pm}}">
+                </div>
+                <br>
+                <div class="form-group">  
+                    <input id="txthorario_descanso" class="form-control" type="text" name="txthorario_descanso" 
+                    placeholder="horario descanso" minlength="1" maxlength="50" required
+                    value="{{Curso.horario_descanso}}">
+                </div>
+                <br>
+                <div  class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Agregar Nuevo Horario</button>
+                </div>
+            </form>
+          </div>
+        </div>    
+    </div>
+</div>
+
+{% endblock %}
