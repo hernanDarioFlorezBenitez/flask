@@ -1,18 +1,19 @@
 .impo{
     background: #D5FAFC;
-    width:1400px;
+    width:100%;
 }
 
 .titulo{
     text-align:center;
     padding:21px;
     margin:0px;
+    justify-content: center;
     
     }
     
 .titulo p {
-        width:700px;
-        padding-left:20%;
+        width:100%;
+        margin: 0 10px;
         text-align: center;
     }
     
@@ -51,9 +52,12 @@ form input{
         background:white;
         border-radius:6px;
         border:none;
-        
     
     }
+
+#txtmensaje{
+    resize:none;
+}    
     
 .formularioTra{
         margin:20px;
@@ -78,7 +82,20 @@ form input{
         
     }
 
-#txtmensaje{
-    resize:none;
-}
+
     
+@media only screen and (max-width:800px) {
+    .container{
+        display: block;
+        text-align: center;
+    }
+    .enlaces{
+        padding-left:0;
+    }
+
+    .formularioTra{
+        margin-left: 0;
+        
+    }
+   
+}

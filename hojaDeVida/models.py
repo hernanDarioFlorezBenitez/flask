@@ -10,5 +10,6 @@ class hojaVida(models.Model):
     celular=models.CharField(max_length=250, verbose_name='celular')
     mensage=models.CharField(max_length=200, verbose_name='mensage')    
      
-def _str_(self):
-    return  self.nombres  
+def __str__(self):
+    return '{} - {}'.format(self.cedula, self.nombres)  
+

@@ -1,0 +1,17 @@
+
+@media screen and (max-width:800px) {
+    .cobertura{
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    .cobertura img{
+        margin:5px;
+        width: 350px;
+        height: auto;
+    }
+    .cobertura h1{
+        font-size: 18px;
+    }
+}
+

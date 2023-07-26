@@ -51,7 +51,7 @@
 }
 
 .ring{
-    margin:40px;
+    margin:5px;
     width: 50%;
 }
 
@@ -72,10 +72,20 @@
         align-items: center;
     }
     .footer{
-        height: 300px;
+        height: 320px;
     }
     .ring{
         margin: 0;
         width: 0;
+        font-size: 1rem;
+        
+    }
+    .copi {
+        margin: 0;
+        width: 0;
+    }
+    .i{ 
+        margin: 0;
+        width: 0; 
     }
 }

@@ -1,0 +1,79 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block title %} planes  {% endblock %}
+
+        
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong class="text-dark">{{message}}</strong>
+          </div>
+        {% endfor %}
+      {% endif %}
+    <h2>Gestion de paquetes</h2>
+    <div class="card">
+      <div class="card-body">
+        <form action="/registrarplanes/" method="POST">{% csrf_token %}
+          <div class="form-group">
+            <input id="txtplan" class="form-control" type="text" name="txtplan" 
+            placeholder="planes" minlength=""  required>
+          </div>
+          <br>
+          <div class="form-group">  
+            <input id="txtdetalles" class="form-control" type="text" name="txtdetalles" 
+            placeholder="detalles del plan " minlength=""  required>
+          </div>
+          <br>
+          <div class="form-group">  
+            <input id="txtprecio" class="form-control" type="text" name="txtprecio" 
+            placeholder="precio" minlength="1" maxlength="50" required>
+          </div>
+          <br>
+          <div  class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Agregar Nuevos planes</button>
+          </div>
+        </form>
+      </div>
+    </div>    
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+      <div class="table-responsive">
+        <h1>Lista de planes</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>PLANES</th>
+                <th>DETALLES</th>
+                <th>PRECIOS</th>
+                <th colspan="2">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>  
+            {% for p  in planes %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{p.ID}}</td>
+                <td>{{p.plan}}</td>
+                <td>{{p.detalles}}</td>
+                <td>{{p.precio}}</td>
+                <td>
+                    <a class="btn btn-primary" href="editplan/{{p.ID}}" role="button">Editar</a>
+                    
+                    <a class="btn btn-danger btnEliminacion" href="eliminarplan/{{p.ID}}" role="button">Borrar</a>
+                </td>
+            </tr>  
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>    
+  </div>
+</div>
+{% endblock %} 

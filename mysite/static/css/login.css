@@ -1,6 +1,3 @@
- 
-
-
 .login{
     display: flex;
     background: blue;
@@ -11,32 +8,36 @@
 .all{
     display: block;
     background: orange;
-    width: 470px;
-    height: 590px;
+    width: 500px;
+    height: auto;
     border: none;
     border-radius: 10px;
     align-items: center;
-    margin: 5%;
+    margin:1px 5%;
     margin-left: 120px;
     text-align:center;
 }
 .ryr{
     display: block;
-    font-size:16px;
-    margin-top: 20px; 
+    font-size:12px;
+    margin-top: 10px; 
     color: blue;    
-}
+}   
 .formulario{
     display: block;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .formulario input{
+    align-items: center;
     display: block;
-    margin: 5%;
-    padding: 10px;
-    width: 400px;
+    margin:0 20%;
+    width: 350px;
     border: none;
     border-radius: 40px;
+}
+.formulario label{
+    margin: 0;
+    padding: 0;
 }
 .bnt-ingres{
     color: gray;
@@ -60,3 +61,52 @@ button:hover{
         transform: scale(1.1);
         
     }
+
+
+@media screen and (max-width:800px) {
+
+    .imagen{
+        display: none;
+    }
+    .login{
+        align-items: center;
+        display: block;       
+        width: 100%;
+        height: 100%;
+    }
+    .formulario{
+        margin: 0;
+        padding:0;
+    }
+    .all{
+       width: auto;
+        margin: 5px;
+        padding:0;
+    }
+    .formulario input{
+        width: 200px;
+        height: 40px;
+        font-size: 1em;  
+        
+    }
+
+    .bnt-ingres{
+        margin: 0;
+        padding: 0;
+    }
+    .bnt-ingres{
+        width: 200px;
+        margin-bottom: 4px;
+        height: 40px;
+        font-size: 1em;
+        
+        
+    }
+    .ryr{
+        margin: 0;
+        
+    }
+
+
+    }
+    

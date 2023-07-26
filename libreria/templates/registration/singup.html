@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+registro
+
+{% endblock %}
+
+
+
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<div class="row">
+        <main>
+            <section class="login">       
+                <div class="imagen">
+                    <img src='{% static "img/3_n.jpg" %}' alt="" srcset="">
+                </div>
+               <div class="all">
+                    <div class="ryr">
+                        <h1>Crea tu cuenta RyR</h1>
+                        <img src='{% static "img/agenda.png" %}' width="50" height="50" alt="envio">
+                    </div>
+                    <br><br>
+                    <div class="formulario " >
+                        <form  method="POST" class="user">
+                            {% csrf_token %}
+                            {{form | crispy}}                
+                            <button class="bnt-ingres" value="registrar">Registrarse</button>
+                        </form>  
+                    </div>
+               </div>
+            </section>
+        </main>
+    </div>
+</div>
+    
+
+
+   
+{% endblock %}
+
+   
+   
+

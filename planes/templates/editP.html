@@ -1,0 +1,48 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block title %} Formulario para editar  {% endblock %}
+
+        
+
+{% block content %}   
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edicion de Planes</h2>
+        <div class="card">
+          <div class="card-body">
+            <form action="/editarplan/" method="POST">{% csrf_token %}
+                <div class="form-group">
+                    <input id="txtID" class="form-control" type="text" name="txtID" 
+                    placeholder="ID" minlength="" maxlength="20" required
+                    value="{{p.ID}}" readonly>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input id="txtplan" class="form-control" type="text" name="txtplan" 
+                    placeholder="planes" minlength=""  required
+                    value="{{p.plan}}">
+                </div>
+                <br>
+                <div class="form-group">  
+                    <input id="txtdetalles" class="form-control" type="text" name="txtdetalles" 
+                    placeholder="detalles de plan" minlength=""  required
+                    value="{{p.detalles}}">
+                </div>
+                <br>
+                <div class="form-group">  
+                    <input id="txtprecio" class="form-control" type="text" name="txtprecio" 
+                    placeholder="precio" minlength="1" maxlength="50" required
+                    value="{{p.precio}}">
+                </div>
+                <br>
+                <div  class="form-group ">
+                    <button type="submit" class="btn btn-primary btn-block">Actualizar Plan</button>
+                </div>
+            </form>
+          </div>
+        </div>    
+    </div>
+</div>
+
+{% endblock %}

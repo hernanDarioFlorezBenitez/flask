@@ -1,0 +1,27 @@
+{% extends "navBar.html" %}
+{% load static %}
+
+{% block title %}Perfil{% endblock %}
+    
+{% block content %}
+
+<div class="scree">
+    
+    <div class="contenido">
+        <div class="card">
+            <div class="cont">
+                <span></span>
+                <h6>BIENVENIDO  {{user.username | upper}}</h6>
+                <div class="png">
+                    <img src="{% static 'img/free-wifi.jpg' %}" alt="">
+                </div>
+                <h4>{{user.first_name }}</h4>
+                <h6>{{user.last_name }}</h6>
+                <h6>{{user.email }}</h6>
+                <h6>Telefono:{{user.telefono }}</h6>
+                <h6>ultmimo ingreso:{{user.last_login }}</h6>
+            </div>       
+        </div >      
+    </div>
+</div>
+{% endblock %} 

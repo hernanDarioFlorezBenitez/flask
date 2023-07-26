@@ -7,8 +7,11 @@ from django.template import Template, Context
 from django.template.loader import get_template
 from django.contrib import messages
 from .models import hojaVida
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+@login_required
 def hojavida(request): #segunda vista
     hojaVidaListado = hojaVida.objects.all()
     messages.success(request, '!listado de hojas de vida¡')

@@ -3,7 +3,7 @@
 
 {% block title %}
 
-singUp
+registro
 
 {% endblock %}
 
@@ -11,28 +11,31 @@ singUp
 
 {% block content %}
 {% load static %}
-
-
-    <main>
-        <section class="singup">
-            <div class="img">
-                <img src='{% static "carrucel/002.jpg" %}' alt="">
+{% load crispy_forms_tags %}
+<main>
+    <section class="login">       
+        <div class="imagen">
+            <img src='{% static "img/3_n.jpg" %}' alt="" srcset="">
+        </div>
+       <div class="all">
+            <div class="ryr">
+                <h1>Crea tu cuenta RyR</h1>
+                <img src='{% static "img/agenda.png" %}' width="50" height="50" alt="envio">
             </div>
-           <div class="todo">
-            <div class="cuenta">
-                <h1>Ingresa a tu cuenta</h1><br><img src='{% static "img/logo_pantalla1.jpg" %}' width="50" height="50" alt="envio">
-            </div>
-            <div class="formulario">
-                <form action="" method="get">
-                    <input type="texto" name="" id="" placeholder="Cédula">
-                    <input type="texto" name="" id="" placeholder="contraseña">
+            <br><br>
+            <div class="formulario " >
+                <form  method="POST" class="user">
+                    {% csrf_token %}
+                        {{form | crispy}}                
+                    <button class="bnt-ingres" value="registrar">Registrarse</button>
                 </form>  
             </div>
-            <div>
-                <button class="btnEnviar"> Enviar </button>
-            </div>
-           </div>  
-        </section>
-    </main>
-
+       </div>
+    </section>
+</main>
+   
 {% endblock %}
+
+   
+   
+

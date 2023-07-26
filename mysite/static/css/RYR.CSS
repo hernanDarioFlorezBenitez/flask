@@ -1,15 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 *{
-    
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    
 }
 body{
-    background-color:rgb(88, 88, 89);
-    
+    background-color:rgb(212, 212, 214);
+    width: 100%;
 }
 
 .header{
@@ -19,12 +17,14 @@ body{
     justify-content: space-between;
     align-items: center;
     height: 62px;
-    padding: 5px 10%;
+    padding: 5px ;
+    margin-bottom: 1px;
 }
 .header .logo{
     cursor: pointer;
 }
 .header .logo img{
+    margin-right: 2px;
     height: 50px;
     width: auto;
     transition: all 0.3s;
@@ -90,7 +90,8 @@ body{
     border-radius:6px ;
     cursor: pointer;
     transition: all 0.3s;
-    margin: 3px;
+    margin: 3px 3px 3px 6px;
+    
 }
 .header .btn button:hover,
 .header .menu button:hover{
@@ -109,6 +110,7 @@ body{
     .menu{
         display: inherit;
     }
+    
     
 }
 

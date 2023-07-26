@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+inicio Sesion
+
+{% endblock %}
+
+
+
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+    
+        <div class="row rows">
+                <main>
+                    <section class="singup">
+                        <div class="img">
+                            <img src='{% static "carrucel/002.jpg" %}' alt="">
+                        </div>
+                       <div class="todo"> 
+                        <div class="cuenta">
+                            <h1>Ingresa a tu cuenta</h1><br><img src='{% static "img/logo_pantalla1.jpg" %}' width="50" height="50" alt="envio">
+                        </div>
+                        <div class="formulari">
+                            <form  method="post">
+                                {% csrf_token %}
+                                {{ form |crispy }}
+                                <button type="submit"  class="btnEnviar" value="ingresar">Iniciar session</button>
+                            </form>  
+                        </div>
+                        
+                       </div>  
+                    </section>
+                </main>
+        </div>
+    
+
+{% endblock %}

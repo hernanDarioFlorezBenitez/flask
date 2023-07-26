@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+speedtest
+
+{% endblock %}
+
+
+<!--blocuqe de contenido cambiante-->
+
+{% block content %}
+
+<div class="bodd">
+  <h2 id="mensaje">{{ mensaje }}</h2>
+  <div class="contannn">
+      <form method="post" action="{% url 'medir' %}">
+        {% csrf_token %}
+      <!-- <button type="submit" id="but">Medir Velocidad</button>--->
+      <div class="loader-widget">
+        <h1 class="medh1">MEDIR VELOCIDAD</h1>
+        <SPAN class="loader hide"></SPAN>
+        <div class="loader-content ">
+            <div class="content hide" id="ping"></div> 
+              <div id="resultados">
+                <h4 id="ping">{{ ping }}</h4>
+                <h4 id="velocidadBajada" >{{ velocidad_bajada }}</h4>
+                <h4 id="velocidadSubida">{{ velocidad_subida }}</h4>
+              </div>
+             
+            <button id="ini">INICIO</button>
+        </div>
+    </div>
+      </form>
+    </div>
+    
+    
+    <!---
+    <div id="resultados">
+      <h3 id="mensaje">{{ mensaje }}</h3>
+      <h4 id="ping">{{ ping }}</h4>
+      <h4 id="velocidadBajada" >{{ velocidad_bajada }}</h4>
+      <h4 id="velocidadSubida">{{ velocidad_subida }}</h4>
+    </div>-->
+  </div>
+
+</div>
+  
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

@@ -3,8 +3,11 @@
 
 #histo{
     background: #D5FAFC;
-}
     
+}
+#ro{
+    display: flex;
+}    
 
 .wifi i{
     margin-top: 20px;
@@ -134,6 +137,10 @@
         text-align: center;
     }
 
+    #ro{
+        display:block;
+    }
+
     .wifi i{
         padding:0 30%;
     }
@@ -143,4 +150,4 @@
         left: 0px;
         top: 0px;
     }
-}|
+}

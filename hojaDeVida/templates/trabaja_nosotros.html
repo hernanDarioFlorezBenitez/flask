@@ -17,10 +17,12 @@ Trabajo
     <main class="trabajo">
         <div class="titulo">
             <h1>Trabaja con nosotros</h1>
-            <p>Sabemos que cuentas con increíbles capacidades que ofrecer, por esto te dejamos nuestros formulario para
-                que te registres y nos cuentes sobre tus habilidades, también puedes estar pendiente de nuestras
-                convocatorias y presentarte.
-                Si se encuentra en Medellin, puede acercarse a nuestras oficinas..</p>
+            <p>Sabemos que cuentas con increíbles capacidades que ofrecer, por esto 
+              te dejamos nuestros formulario para
+              que te registres y nos cuentes sobre tus habilidades, también puedes 
+              estar pendiente de nuestras
+              convocatorias y presentarte.
+              Si se encuentra en Medellin, puede acercarse a nuestras oficinas..</p>
         </div>
         <div class="container">
             <div class="enlaces">
@@ -61,8 +63,8 @@ Trabajo
             <form action="/registrarH/" method="POST">{% csrf_token %}
          
                 <div class="form-group  "> 
-                  <input id="txtcedula" type="text" name="txtcedula" placeholder="cedula" 
-                  class="form-control" required> 
+                  <input id="txtcedula" type="number" name="txtcedula" placeholder="cedula" 
+                  class="form-control" autofocus required> 
                 </div>
                
                 <div class="form-group">
@@ -81,7 +83,7 @@ Trabajo
                 </div>
       
                 <div class="form-group">
-                  <input id="txtcelular" type="tel" name="txtcelular" placeholder="Escribe tu telefono" 
+                  <input id="txtcelular" type="number" name="txtcelular" placeholder="Escribe tu telefono" 
                   class="form-control" required>  
                 </div>
 

@@ -1,7 +1,7 @@
 {% extends "plantilla.html" %}
 {% load static %}
 
-{% block title %} GestionCursos  {% endblock %}
+{% block title %} asesorias  {% endblock %}
 
         
 
@@ -16,27 +16,27 @@
           </div>
         {% endfor %}
       {% endif %}
-    <h2>Gestion de Horarios</h2>
+    <h2>Solicitudes de asesorias</h2>
     <div class="card">
       <div class="card-body">
         <form action="/registrarCurso/" method="POST">{% csrf_token %}
           <div class="form-group">
-            <input id="txthorario_am" class="form-control" type="text" name="txthorario_am" 
-            placeholder="horario am" minlength="" maxlength="20" required>
+            <input id="txthorario_am" class="form-control" type="number" name="txthorario_am" 
+            placeholder="cedula" minlength="" maxlength="20" required>
           </div>
           <br>
           <div class="form-group">  
             <input id="txthorario_pm" class="form-control" type="text" name="txthorario_pm" 
-            placeholder="horario pm" minlength="" maxlength="20" required>
+            placeholder="nombres" minlength="" maxlength="20" required>
           </div>
           <br>
           <div class="form-group">  
-            <input id="txthorario_descanso" class="form-control" type="text" name="txthorario_descanso" 
-            placeholder="horario descanso" minlength="1" maxlength="50" required>
+            <input id="txthorario_descanso" class="form-control" type="tel" name="txthorario_descanso" 
+            placeholder="whatsapp" minlength="1" maxlength="50" required>
           </div>
           <br>
           <div  class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Agregar Nuevo Horario</button>
+            <button type="submit" class="btn btn-primary btn-block">Agregar</button>
           </div>
         </form>
       </div>
@@ -44,15 +44,15 @@
   </div>
   <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
       <div class="table-responsive">
-        <h1>Lista de Horarios</h1>
+        <h1>Lista de pedidos</h1>
         <table class="table table-striped">
           <thead>
             <tr>
                 <th>#</th>
                 <th>ID</th>
-                <th>horario am</th>
-                <th>horario pm</th>
-                <th>horario descanso</th>
+                <th>CEDULA</th>
+                <th>NOMBRE</th>
+                <th>WHATSAPP</th>
                 <th colspan="2">Acciones</th>
             </tr>
           </thead>

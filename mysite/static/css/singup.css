@@ -1,14 +1,18 @@
+.rows{
+    background: blue;
+}
+
 .singup{
     display: flex;
-    background: blue;
+   
 }
 .img{
     display: block;
 }
-.todo{
+.todo{   
     background: orange;
     width: 470px;
-    height: 490px;
+    height: 590px;
     border: none;
     border-radius: 10px;
     align-items: center;
@@ -22,11 +26,11 @@
     margin-top: 20px; 
     color: blue;    
 }
-.formulario{
+.formulari{   
     display: block;
     margin-top: 30px;
 }
-.formulario input{
+.formulari input{
     display: block;
     margin: 5%;
     padding: 10px;
@@ -56,68 +60,48 @@ button:hover{
         transform: scale(1.1);
         
     }
-
-/*
-.singup{
-    display: flex;
-    background: blue;
-}
-.img{
-    display: block;
-}
-.todo{
-    
-    background: orange;
-    width: 470px;
-    height: 380px;
-    border: none;
-    border-radius: 10px;
-    align-items: center;
-    margin: 5%;
-    margin-left: 120px;
-    text-align:center;
-    padding: 50px;
-      
-}
-.cuenta{
-    display: block;
-    font-size:16px;
-    margin-top: 20px; 
-    color: blue;    
-}
-.formulario{
-    display: block;
-    margin-top: 30px;
-}
-.formulario input{
-    display: block;
-    margin: 5%;
-    padding: 10px;
-    width: 400px;
-    border: none;
-    border-radius: 40px;
-}
-
-
-.btnEnviar {
-    color: gray;
-    width: 300px;
-    margin: 20px ;
-    margin-left: 90px;
-    height: 40px;
-    border: none;
-    border-radius: 40px;
-    color: blue;
-    font-size: 1em;
-    font-weight:bold;
-    text-align:center;
-    margin-right:100px;
-    cursor: pointer;
-    transition: all 0.3s;
+@media screen and (max-width:800px) {
+    .img{
+        display: none;
     }
-
-.btnEnviar button:hover{
-        background: rgb(91, 139, 229);
-        transform: scale(1.1);
+    .singup{
+        margin: 5px;
+        align-items: center;
+        display: block;
+        width: auto;
         
     }
+    .formulari{
+    
+        margin: 0;
+        padding:0;
+    }
+    .todo{
+        width: 100%;
+        margin: 0;
+        padding:0;
+        
+    }
+    .formulari input{
+        width: 200px;
+        margin: 20px 0px;
+        margin-left:100px;
+        height: 40px;
+        
+        
+    }
+
+    .btnEnviar{
+        width: 200px;
+        
+        margin-left:100px;
+        height: 40px;
+    }
+    .rows{
+        width: auto;
+    }
+
+}
+
+
+   

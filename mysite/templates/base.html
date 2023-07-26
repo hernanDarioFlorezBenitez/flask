@@ -1,7 +1,7 @@
 {% load static %}
-
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,16 +10,22 @@
     <link type="text/css" rel="stylesheet" href='{% static "css/RYR.CSS" %}'><!--estilos del header-->
     <link type="text/css" rel="stylesheet" href='{% static "css/carrucel.css" %}'><!--estilos del banner o carrucel-->
     <link type="text/css" rel="stylesheet" href='{% static "css/form.css" %}'>
+    <link type="text/css" rel="stylesheet" href='{% static "css/cobertura.css" %}'>
     <!--estilos del formulario de solicitud de servicio-->
     <link type="text/css" rel="stylesheet" href='{% static "css/planes.css" %}'><!--estilos del pantalla de planes-->
     <link type="text/css" rel="stylesheet" href='{% static "css/footer.css" %}'><!--estilos del footer-->
     <link type="text/css" rel="stylesheet" href='{% static "css/singup.css" %}'>
     <link type="text/css" rel="stylesheet" href='{% static "css/login.css" %}'>
 
+    
     <link type="text/css" rel="stylesheet" href='{% static "css/acercaDe.css" %}'>
     <link type="text/css" rel="stylesheet" href='{% static "css/Trabaja.css" %}'>
     <link type="text/css" rel="stylesheet" href='{% static "css/configWifi.css" %}'>
+    <link rel="stylesheet" type="text/css" href="{% static 'med.css' %}"><!--estilos de medidor de velocidad-->
+    <link rel="stylesheet" href="{% static 'vel.css' %}">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><!---estilo css para los carucel cn libreria-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
     <script src="https://kit.fontawesome.com/f18c17b516.js" crossorigin="anonymous"></script>
 
     <script type="text/javaScript" src="https://kit.fontawesome.com/f18c17b516.js" crossorigin="anonymous"></script>
@@ -46,21 +52,26 @@
                 <li><a href="{% url 'acercaDe' %}">ACERCA DE</a></li>
                 <li><a href="{% url 'pago' %}">PAGOS</a></li>
                 <li><a href="{% url 'trabajar' %}">TRABAJA CON NOSOTROS</a></li>
-                <li><a href="">SERVICIOS</a>
-                    <ul class="navLe">
-                        <li><a href="{% url 'instalacion' %}">Solicitar Instalacion</a></li>
-                        <li><a href="{% url 'reparaciones' %}">Solicitar Reparacion</a></li>
-                        <li><a href="{% url 'wifi' %}">Configuracion Wifi</a></li>
-                        <li><a href="{% url 'pqr' %}">Instaurar PQR</a></li>
-                        <li><a href="{% url 'cobertura' %}">Cobertura</a></li>
-                    </ul>
-                </li>
+                <li><a href="{% url 'medidor' %}">TEST INTERNET</a></li>
+                <li><a href="{% url 'instalacion' %}">SERVICIOS</a></li>
             </ul>
         </nav>
+        {% if request.user.is_authenticated %}
+               <a href="{% url 'perfil' %}"> @{{user.username | upper}}</a>
+        {% endif %}
+
         <nav class="btn">
-            <a href="{% url 'singup' %}"> <button>Login</button></a>
-            <a href="{% url 'login' %}"><button>Sign Up</button></a>
+            {% if request.user.is_authenticated %}
+                
+                <a href="{% url 'salir' %}"><button>Salir</button></a>
+            {% else %}
+                <a href="{% url 'login' %}"><button>Ingresar</button></a>
+
+            {% endif %}
+            <a href="{% url 'resgistro' %}"><button>Registrarse</button></a>
+                        
         </nav>
+       
 
         <a onclick="openNav()" class="menu" href="#">
             <button>Menu</button>
@@ -70,25 +81,33 @@
             <a onclick="closeNav()" class="close" href="">&times;</a>
 
             <div class="overlay-content">
+               
                 <a href="{% url 'acercaDe' %}">Acerca De</a>
                 <a href="{% url 'pago' %}">Pagos</a>
                 <a href="{% url 'trabajar' %}">Trabaja Con Nosotros</a>
-                <a href="{% url 'instalacion' %}">Solicitar Instalacion</a>
-                <a href="{% url 'reparaciones' %}">Solicitar Reparacion</a>
-                <a href="{% url 'wifi' %}">Configuracion Wifi</a>
-                <a href="{% url 'pqr' %}">Instaurar PQR</a>
+                <a href="{% url 'instalacion' %}">Instalaciones</a>
+                <a href="{% url 'reparaciones' %}">Reparaciones</a>
+                <a href="{% url 'wifi' %}">Wifi</a>
                 <a href="{% url 'cobertura' %}">Cobertura</a>
-                <a href="{% url 'singup' %}">Login</a>
-                <a href="{% url 'login' %}">Sign Up</a>
+                <a href="{% url 'pqr' %}">PQR</a>
+                
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'perfil' %}">perfil</a>
+                    <a href="{% url 'salir' %}">Salir</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Ingresar</a>
+        
+                {% endif %}
+                <a href="{% url 'resgistro' %}">Registrarse</a>
+                        
             </div>
         </div>
     </header>
 </div>
 
 <!--bloque de contenido que cambia en la pagina-->
-
+   
 {% block content %} {% endblock %}
-
 
 <footer class="footer">
     <h4 id="h4">RYR</h4>
@@ -97,15 +116,20 @@
         <a href="">Quejas y Reclamos</a>
         <a href="">contactanos</a>
         <a href="">Politicas de privacidad</a>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'salir' %}">Salir</a>
+            {% else %}
+        <a href="{% url 'cursos' %}">Admin</a>
+        {% endif %}
+        
     </div>
     </div>
 
     <div class="copi">
         <div class="ring">
             <i class="fa fa-copyright" aria-hidden="true"></i>
-            2022 HDFsofware.All rights reserved
+            HDFsofware
         </div>
-
         <div class="i">
             <a href="https:www.facebook.com/RYRtelecomunicacioness" target="_blank">
                 <i class="fa fa-facebook-official" aria-hidden="true"></i>
@@ -121,8 +145,8 @@
     </div>
 
 </footer>
-
-
+<script src='{% static "javaScript/med.js" %}''></script>
+<script src='{% static "javaScript/logica.js" %}''></script>
 <script type="text/javaScript" src='{% static "javaScript/nav.js" %}'></script>
 <script type="text/javaScript" src='{% static "javaScript/main.js" %}'></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -134,5 +158,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 </body>
 </html>

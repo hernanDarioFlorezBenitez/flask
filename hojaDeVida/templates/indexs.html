@@ -17,7 +17,7 @@
     </div>
     {% endfor %}
     {% endif %}
-    <h2>Agregar hoja de Vida</h2>
+    <h2 style="text-align: center;">Agregar hoja de Vida</h2>
     <div class="card">
       <div class="card-body">
         
@@ -68,10 +68,11 @@
     </div>
   </div>
 </div>
+<br>
 <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12">
   <div class="table-responsive">
     <div class="card-body">
-      <h5 class="card-title">hojas de vida</h5>
+      <h5 class="card-title" style="text-align: center;">hojas de vida</h5>
       <table class="table table-striped">
         <thead class="thead-dark">
           <tr>
@@ -102,7 +103,6 @@
               <a class="btn btn-danger" href="eliminarHv/{{h.ID}}" role="button">Borrar</a>
             </td>
           </tr>
-
           {% endfor %}
         </tbody>
       </table>

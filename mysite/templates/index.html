@@ -65,20 +65,20 @@ RYR
                         <h2>SOLICITA TU SERVICIO</h2>
                         <p>Dejanos tu numero de celular o whatsapp</p>
                         <p>para que nustro asesor se comunique con tigo</p>
-                        <form action="/registrarCurso/" method="POST">{% csrf_token %}
+                        <form action="/registrarCursoHome/" method="POST">{% csrf_token %}
                             <div class="form-group">
-                                <input id="txthorario_am" class="form-control" type="text" name="txthorario_am"
-                                    placeholder="horario am" minlength="" maxlength="20" required>
+                                <input id="txthorario_am" class="form-control" type="number" name="txthorario_am"
+                                    placeholder="cedula" minlength="" maxlength="" required>
                             </div>
 
                             <div class="form-group">
                                 <input id="txthorario_pm" class="form-control" type="text" name="txthorario_pm"
-                                    placeholder="horario pm" minlength="" maxlength="20" required>
+                                    placeholder="nombre" minlength="" maxlength="" required>
                             </div>
 
                             <div class="form-group">
-                                <input id="txthorario_descanso" class="form-control" type="text"
-                                    name="txthorario_descanso" placeholder="horario descanso" minlength="1"
+                                <input id="txthorario_descanso" class="form-control" type="tel"
+                                    name="txthorario_descanso" placeholder="whatsapp" minlength="1"
                                     maxlength="50" required>
                             </div>
 
@@ -86,7 +86,7 @@ RYR
                                 <button type="submit" class="btn btn-primary btn-block">Solicitar Acesoria</button>
                             </div>
                             <input type="checkbox" name="checkbox" id="checkbox">
-                            <p>Acepto la<a href=""> política de privacidad</a></p>
+                            <p>Acepto la<a href="#"> política de privacidad</a></p>
 
                         </form>
                     </div>
@@ -107,92 +107,27 @@ RYR
     <div class="planes">
         <h3> INTERNET & TELEVISION</h3>
         <div class="plan">
-
-
             <div>
                 <div class="box">
                 </div>
-
-                <div class="section">
-                    <section id="recuadro1">
-                        <h1 id="titulo1">
-                            Tv + Internet 7MG
-                        </h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa delectus iste impedit
-                            assumenda
-                            illum saepe pariatur tempore. Nulla at natus asperiores distinctio earum, voluptas magni
-                            doloribus
-                            quae officia temporibus maxime?
-                        </p>
-                    </section>
-                    <section id="recuadro1">
-                        <h1 id="titulo1">
-                            Tv + Internet 15MG
-                        </h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa delectus iste impedit
-                            assumenda
-                            illum saepe pariatur tempore. Nulla at natus asperiores distinctio earum, voluptas magni
-                            doloribus
-                            quae officia temporibus maxime?
-                        </p>
-                    </section>
-                    <section id="recuadro1">
-                        <h1 id="titulo1">
-                            Tv + Internet 30MG
-                        </h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa delectus iste impedit
-                            assumenda
-                            illum saepe pariatur tempore. Nulla at natus asperiores distinctio earum, voluptas magni
-                            doloribus
-                            quae officia temporibus maxime?
-                        </p>
-                    </section>
-                </div>
-
-                <div class="section">
-                    <section id="recuadro1">
-                        <h1 id="titulo1">
-                            Tv + Internet 50MG
-                        </h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa delectus iste impedit
-                            assumenda
-                            illum saepe pariatur tempore. Nulla at natus asperiores distinctio earum, voluptas magni
-                            doloribus
-                            quae officia temporibus maxime?
-                        </p>
-                    </section>
-                    <section id="recuadro1">
-                        <h1 id="titulo1">
-                            Tv + Internet 100MG
-                        </h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa delectus iste impedit
-                            assumenda
-                            illum saepe pariatur tempore. Nulla at natus asperiores distinctio earum, voluptas magni
-                            doloribus
-                            quae officia temporibus maxime?
-                        </p>
-                    </section>
-                    <section id="recuadro1">
-                        <h1 id="titulo1">
-                            Tv + Internet 500MG
-                        </h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa delectus iste impedit
-                            assumenda
-                            illum saepe pariatur tempore. Nulla at natus asperiores distinctio earum, voluptas magni
-                            doloribus
-                            quae officia temporibus maxime?
-                        </p>
-                    </section>
+                <!---https://www.youtube.com/watch?v=uDqW8bCFhps-->
+                <div class="container">
+                    <div class="section row">
+                        
+                        {% for p in planes  %}
+                        
+                            <section id="recuadro1">
+                                <h1 id="titulo1"><a href="{% url 'instalacion' %}">{{p.plan}}</a></h1>
+                                <h6>{{p.detalles}}</h6>
+                                <h2>$:{{p.precio}}</h2>
+                            </section>
+                        
+                        {% endfor %}
+                        
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </main>
 

@@ -1,18 +1,138 @@
-{% extends "base.html" %}
+{% extends "navBar.html" %}
+{% load static %}
 
-
-{% block title %}
-
-intalaciones
-
-{% endblock %}
-
-<!--blocuqe de contenido cambiante-->
-
+{% block title %}Instalaciones{% endblock %}
+    
 {% block content %}
-<br>
+<div id="Instalacion">
+    <h1>Solicita Tu Instalacion</h1>
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="row g-3">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Seleccione el plan a contratar</option>
+            {% for p in planes  %}
+            <option value="1">{{p.plan}}</option>
+            {% endfor %}
+        </select>
+        <div class="col-md-3">
+            <label for="validationServer04" class="form-label">Documento identidad</label>
+            <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+              <option selected disabled value="">...</option>
+                    <option value="1">Nit</option>
+                    <option value="2">Cedula ciudadania</option>
+                    <option value="3">Cedula extranjeria</option>
+                    <option value="3">Permiso de trabajo</option>
+            </select>
+            <div id="validationServer04Feedback" class="invalid-feedback">
+              Please select a valid state.
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="validationServer05" class="form-label">Numero Identidad</label>
+            <input type="number" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+            <div id="validationServer05Feedback" class="invalid-feedback">
+              Please provide a valid zip.
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="validationServer05" class="form-label">whatsapp</label>
+            <input type="number" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+            <div id="validationServer05Feedback" class="invalid-feedback">
+              Please provide a valid zip.
+            </div>
+          </div>
+        <div class="col-md-4">
+          <label for="validationServer01" class="form-label">Nombres</label>
+          <input type="text" class="form-control is-valid" id="validationServer01" value="" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationServer02" class="form-label">Apellidos</label>
+          <input type="text" class="form-control is-valid" id="validationServer02" value="" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationServer02" class="form-label">Correo</label>
+            <input type="email" class="form-control is-valid" id="validationServer02" value="" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        <div class="col-md-6">
+          <label for="validationServer03" class="form-label">Direccion</label>
+          <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+          <div id="validationServer03Feedback" class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationServer04" class="form-label">Municipio</label>
+          <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">zona...</option>
+                    {% for p in planes  %}
+                    <option value="1">{{p.plan}}</option>
+                    {% endfor %}
+          </select>
+          <div id="validationServer04Feedback" class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationServer05" class="form-label">Barrio</label>
+          <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+          <div id="validationServer05Feedback" class="invalid-feedback">
+            Please provide a valid zip.
+          </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Escribe una referencia para ubicar la vivienda</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+        </div>
+        
+        <div class="col-md-6">
+            <label for="formFileSm" class="form-label">Adjuntar copia cedula</label>
+            <input class="form-control form-control-sm" id="formFileSm" type="file">
+        </div>
+        <div class="col-md-6">
+            <label for="formFileSm" class="form-label">Adjuntar carta laboral</label>
+            <input class="form-control form-control-sm" id="formFileSm" type="file">
+        </div>
 
-<h1>solicita tu instalacion</h1>
-<h2>pagina en construccion</h2>
+        <div class="col-8">
+          <div class="form-check">
+            <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+            <label class="form-check-label" for="invalidCheck3">
+              Agree to terms and conditions
+            </label>
+            <div id="invalidCheck3Feedback" class="invalid-feedback">
+              You must agree before submitting.
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-primary" type="submit">Enviar</button>
+        </div>
+        </div>
+      
+      </form>
+     
+</div>
+
+
 
 {% endblock %} 
+
+
+
+
+
+
+
+
+

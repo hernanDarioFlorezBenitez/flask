@@ -4,7 +4,7 @@
 
     btnEliminacion.forEach(btn => {
         btn.addEventListener('click',(e)=>{
-            const confirmacion=confirm('¿seguro de eliminar el curso?');
+            const confirmacion=confirm('¿seguro de eliminar el item?');
             if(!confirmacion){
                 e.preventDefault();
             }

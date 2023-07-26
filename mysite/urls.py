@@ -21,17 +21,19 @@ from mysite import views
 from django.urls import include
 from django.conf import settings
 from django.views.static import serve
-#from mysite.views import  index, singup, acercaDe, cobertura, trabajo, wifi
-
+from django.contrib.auth import views as auth_views
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index, name="index"),
-    path('singup', views.singup, name="singup"),
+    path('accounts/',include('django.contrib.auth.urls')),
     path('acercaDe',views.acercaDe, name="acercaDe"),
-    path('login',views.login, name="login"),
+    
+
+   # path('resgistro',auth_views.LoginView.as_view(template_name='registration/singup.html'),name='resgistro' ),
+    path('resgistro',views.resgistro, name="resgistro"),
     path('cobertura',views.cobertura, name="cobertura"),
     path('trabajo',views.trabajo, name="trabajo"),
     path('wifi', views.wifi, name="wifi"),
@@ -39,13 +41,21 @@ urlpatterns = [
     path('instalacion', views.instalacion, name="instalacion"),
     path('reparaciones', views.reparaciones, name="reparaciones"),
     path('pqr', views.pqr, name="pqr"),
+    path('perfil', views.perfil, name="perfil"),
     path('cobertura', views.cobertura, name="cobertura"),
 
     #vistas de ejemplo libreria
 
     path('', include('libreria.urls')),
     path('', include('hojaDeVida.urls')),
+    path('', include('medidor.urls')),
+    path('', include('wifi_app.urls')),
+    path('', include('planes.urls')),
+
+
+    path('intalacionplane/<ID_hotario>', views.intalacionplane),
 ]
+
 
 
 urlpatterns +=[
@@ -54,3 +64,10 @@ urlpatterns +=[
     })
 
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings .MEDIA_URL)
+
+#vista de la app medidor de elcidad
+

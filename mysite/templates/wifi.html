@@ -1,50 +1,73 @@
-{% extends "base.html" %}
-
-
-{% block title %}
-
-configWifi
-
-{% endblock %}
-
-
-
-{% block content %}
+{% extends "navBar.html" %}
 {% load static %}
 
+{% block title %}usuario{% endblock %}
+    
+{% block content %}
+<div class="container">
 
-<div id="back">
-    <br><br>
+    <div id="back">
+       
         <h1 class="red">Comfiguracion de WIFI</h1>
         <p>podras coambiar el nombre de la red y contraseña wifi</p>
-            <br>
+        <br>
         <p>Ingresa el nuevo nombre de tu red WiFi y/o contraseña y da clic en Cambiar.</p>
-
-    <div class="form2">
-        <h2>Informacion de Red</h2>
-            <div class="input">
-                <form action="" method="post">
-
-                    <input type="text" class="form-control form-control-sm" id="colFormLabel" placeholder=" Nuevo Nombre ">
-                    <input type="name" class="form-control form-control-sm" id="colFormLabel" placeholder=" Nueva Contraseña ">
-
-                </form>
+    
+        <div class="form2">
+            <h2>Configuracion de Nombre y Contraseña</h2>
+            <div class="">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong class="text-dark">{{message}}</strong>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <div class="container">
+                    
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-5 col-xl-5 offset-md-4">
+                            
+                            <form class="card-body" action="" method="POST">{% csrf_token %}
+        
+                                <div class="form-group  ">
+                                    <input id="txtnombre" type="text" name="txtnombre" placeholder="Nuevo Nombre"
+                                        class="form-control" autofocus required>
+                                </div>
+        
+                                <div class="form-group">
+                                    <input id="txtpassword" type="text" name="txtpassword" placeholder="Nueva Contraseña"
+                                        class="form-control" required>
+                                </div>
+        
+                                <div class="form-group">
+                                    <input id="txtclave" type="text" name="txtclave" placeholder="Confirmar Contraseña"
+                                        class="form-control" required>
+                                </div>
+                                <div class="form-grup form-g">
+                                    <button type="submit" class="cambiar">GUARDAR</button>
+                                    <button type="submit" class="cancelar">CANCELAR</button>
+                                </div>
+                            </form>
+                            <p class="p">¡Listo! Una vez realices los cambios, recuerda buscar la nueva red en tus dispositivos e ingresar la nueva
+                                contraseña en tus dispositivos.</p>
+                        </div>
+                    </div>
+    
+                </div>
+                
             </div>
-            <div class="bntFOr">
-                <button class="cancelar">Cancelar</button>
-                <button class="cambiar">Cambiar</button>
-            </div>
+        </div>
     </div>
-    <p class="p">¡Listo! Una vez realices los cambios, recuerda buscar la nueva red en tus dispositivos e ingresar la nueva
-        contraseña en tus dispositivos.</p>    
-        <br><br>
 </div>
 
+{% endblock %} 
 
-    
-{% endblock %}
 
- 
-        
-      
-  
+
+
+
+
+
+

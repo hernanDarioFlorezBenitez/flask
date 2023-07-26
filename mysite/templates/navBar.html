@@ -1,0 +1,222 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en-es">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href='{% static "css/RYR.CSS" %}'><!--estilos del header-->
+    <link type="text/css" rel="stylesheet" href='{% static "css/carrucel.css" %}'><!--estilos del banner o carrucel-->
+    <link type="text/css" rel="stylesheet" href='{% static "css/form.css" %}'>
+    <!--estilos del formulario de solicitud de servicio-->
+    <link type="text/css" rel="stylesheet" href='{% static "css/planes.css" %}'><!--estilos del pantalla de planes-->
+    <link type="text/css" rel="stylesheet" href='{% static "css/footer.css" %}'><!--estilos del footer-->
+    <link type="text/css" rel="stylesheet" href='{% static "css/singup.css" %}'>
+    <link type="text/css" rel="stylesheet" href='{% static "css/login.css" %}'>
+
+    <link type="text/css" rel="stylesheet" href='{% static "css/cobertura.css" %}'> 
+    <link type="text/css" rel="stylesheet" href='{% static "css/perfil.css" %}'>   
+    <link type="text/css" rel="stylesheet" href='{% static "css/row.css" %}'>
+    <link type="text/css" rel="stylesheet" href='{% static "css/acercaDe.css" %}'>
+    <link type="text/css" rel="stylesheet" href='{% static "css/Trabaja.css" %}'>
+    <link type="text/css" rel="stylesheet" href='{% static "css/configWifi.css" %}'>
+    <link rel="stylesheet" type="text/css" href="{% static 'med.css' %}"><!--estilos de medidor de velocidad-->
+    <link rel="stylesheet" href="{% static 'vel.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href='{% static "css/instalacion.css" %}'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><!---estilo css para los carucel cn libreria-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+    <script src="https://kit.fontawesome.com/f18c17b516.js" crossorigin="anonymous"></script>
+
+    <script type="text/javaScript" src="https://kit.fontawesome.com/f18c17b516.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div>
+    <header class="header">
+        <div class="logo">
+            <a class="navbar-brand" href="{% url 'index' %}"><img src='{% static "img/menulogo.jpg" %}'
+                    alt="logo de RYR"></a>
+        </div>
+
+        <nav>
+            <ul class="navLef ">
+                <li><a href="{% url 'acercaDe' %}">ACERCA DE</a></li>
+                <li><a href="{% url 'pago' %}">PAGOS</a></li>
+                <li><a href="{% url 'trabajar' %}">TRABAJA CON NOSOTROS</a></li>
+                <li><a href="{% url 'medidor' %}">TEST INTERNET</a></li>
+                <li><a href="{% url 'instalacion' %}"">SERVICIOS</a></li>
+            </ul>
+        </nav>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'perfil' %}">@{{user.username | upper}}</a>
+        {% endif %}
+        <nav class="btn">
+            {% if request.user.is_authenticated %}
+                
+                <a href="{% url 'salir' %}"><button>Salir</button></a>
+            {% else %}
+                <a href="{% url 'login' %}"><button>Ingresar</button></a>
+
+            {% endif %}
+            <a href="{% url 'resgistro' %}"><button>Registrarse</button></a>
+                        
+        </nav>
+       
+
+        <a onclick="openNav()" class="menu" href="#">
+            <button>Menu</button>
+        </a>
+
+        <div class="overlay" id="mobile-menu">
+            <a onclick="closeNav()" class="close" href="">&times;</a>
+
+            <div class="overlay-content">
+                <a href="{% url 'acercaDe' %}">Acerca De</a>
+                <a href="{% url 'pago' %}">Pagos</a>
+                <a href="{% url 'trabajar' %}">Trabaja Con Nosotros</a>
+                <a href="{% url 'instalacion' %}">Instalaciones</a>
+                <a href="{% url 'reparaciones' %}">Reparaciones</a>
+                <a href="{% url 'wifi' %}">Wifi</a>
+                <a href="{% url 'cobertura' %}">Cobertura</a>
+                <a href="{% url 'pqr' %}">PQR</a>
+                
+                {% if request.user.is_authenticated %}
+                
+                    <a href="{% url 'salir' %}">Salir</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Ingresar</a>
+        
+                {% endif %}
+                <a href="{% url 'resgistro' %}">Registrarse</a>
+                        
+            </div>
+        </div>
+    </header>
+</div>
+<div class="row">
+    <div class="col-sm-0 col-md-0 col-lg-3 col-xl-3">
+        <div class="estiloNav">
+            <div class="navegador">
+                <nav class="navv">
+                    <ul>
+                        <li>
+                            <a class="logoUser" href="{% url 'perfil' %}">
+                                <i class="fas fa-user" ></i>
+                                {% if request.user.is_authenticated %}
+                                <span class="nav-item">{{user.username | upper}}</span>
+                                {% endif %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'instalacion' %}">
+                                <i class="fas fa-home" ></i>
+                                <span class="nav-item">Instalaciones</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'reparaciones' %}">
+                                <i class="fas fa-wallet" aria-hidden="true"></i>
+                                <span class="nav-item">Reparaciones</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'wifi' %}">
+                                <i class="fas fa-wifi" aria-hidden="true"></i>
+                                <span class="nav-item">Wifi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'cobertura' %}" aria-hidden="true">
+                                <i class="fas fa-map" aria-hidden="true"></i>
+                                <span class="nav-item">Cobertura</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'pqr' %}" aria-hidden="true">
+                                <i class="fas fa-chart-bar"></i>
+                                <span class="nav-item">PQR</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>    
+    
+    <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7">
+        <section>
+            <br>
+                {% block content %}   
+                
+                {% endblock %} 
+            <br>            
+        </section>
+    </div>
+    
+</div>    
+
+
+      
+<footer class="footer">
+        <h4 id="h4">RYR</h4>
+        <h5 id="h5">telecomunicasiones</h5>
+        <div class="ploiticas">
+            <a href="">Quejas y Reclamos</a>
+            <a href="">contactanos</a>
+            <a href="">Politicas de privacidad</a>
+    
+            
+        </div>
+        </div>
+    
+        <div class="copi">
+            <div class="ring">
+                <i class="fa fa-copyright" aria-hidden="true"></i>
+                2022 HDFsofware.All rights reserved
+            </div>
+    
+            <div class="i">
+                <a href="https:www.facebook.com/RYRtelecomunicacioness" target="_blank">
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.instagram.com/ryrtelecomunicaciones/" target="_blank">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="https://wa.me/573022811186" target="_blank">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                </a>
+            </div>
+    
+        </div>
+    
+</footer>
+    <script src='{% static "javaScript/med.js" %}''></script>
+    <script src='{% static "javaScript/logica.js" %}''></script>
+    <script type="text/javaScript" src='{% static "javaScript/nav.js" %}'></script>
+    <script type="text/javaScript" src='{% static "javaScript/main.js" %}'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>    
+
+</body>
+</html>
+
+

@@ -28,3 +28,14 @@ const stop=()=> {
     start();
  })
 start();
+
+
+
+
+Window.addEventListener('load',function(){
+    new Glider(document.querySelector('.carousel__lista'),{
+        slidesToShow:5,
+        slidesToScroll:5,
+        
+    });
+})

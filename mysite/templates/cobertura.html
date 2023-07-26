@@ -1,21 +1,13 @@
-
-
-{% extends "base.html" %}
-
-
-{% block title %}
-
-Cobertura
-
-{% endblock %}
-
-
-
-{% block content %}
+{% extends "navBar.html" %}
 {% load static %}
-<br><br>
-<h1>Zona de cobertura de nuestra red</h1>
 
-<p>pagian en construccion</p>
-<br><br>
-{% endblock %}
+{% block title %}Cobertura{% endblock %}
+    
+{% block content %}
+<div class="cobertura">
+    <h1>Lugares donde prestamos servicio</h1>
+    <img src="{% static  'cobertura/001.jpg' %}" alt="">
+</div >
+
+
+{% endblock %} 
